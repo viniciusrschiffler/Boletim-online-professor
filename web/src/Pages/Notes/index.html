@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../imagens/faeterjLogo.png">
+    <link rel="stylesheet" href="../../styles/navBar.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="styles/button.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Lançamento de Notas</title>
+</head>
+
+<body>
+    <div id="navBar">
+        <nav>
+            <label class="logo">CPTI-Petrópolis</label>
+            <ul>
+                <li><a href="../../Pages/HomePage/index.html">Casa</a></li>
+                </li>
+                <li>
+                    <a  class="active"  href="#">Turmas</a>
+                    <ul id="classes"></ul>
+                </li>
+                <li><a id="exit" href="../../../index.html">Sair</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <header></header>
+        
+    
+    <form id="form">
+        <div class="table">
+            <table cellspacing="0" border="1" cellpadding="10">
+                <tr>
+                    <th>Alunos</th>
+                    <th>1º Bimestre</th>
+                    <th>Frequência (%)</th>
+                    <th>2º Bimestre</th>
+                    <th>Frequência (%)</th>
+                </tr>
+                <tbody id="list">
+                </tbody>
+            </table>
+
+        </div>
+        <div class="table">
+            <button type="submit" id="send" class="send">
+                <svg viewBox="0 0 90.594 59.714">
+                    <polyline class="check" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-miterlimit="10"
+                        points="1.768,23.532 34.415,56.179 88.826,1.768" />
+                </svg>
+                <span>Enviar</span>
+            </button>
+        </div>
+    </form>
+
+
+    <!-- importando axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <!-- importando nossos scripts -->
+    <script src="scripts/button.js"></script>
+    <script src="../../scripts/navBar.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

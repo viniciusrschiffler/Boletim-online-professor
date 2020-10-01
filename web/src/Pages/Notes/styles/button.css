@@ -1,0 +1,65 @@
+
+.send {
+  background: rgb(6, 73, 196);
+  color: white;
+  border: 1px solid rgb(6, 73, 196);
+  border-radius: 70px;
+  box-shadow: 0 0 0 0 rgb(6, 73, 196);
+  cursor: pointer;
+  font-size: 20px;
+  min-height: 35px;
+  min-width: 55px;
+  outline: none;
+  padding: 10px 50px;
+  transition: background, padding 500ms ease-in-out;
+  margin-top: 25px;
+}
+  .is-loading {
+    animation: pulse 1.5s infinite;
+    padding: 15px 17px;
+  }
+  
+  .is-success {
+    background: rgb(6, 73, 196);
+    padding: 15px 17px;
+  }
+
+svg {
+  width: 0;
+  height: 0;
+}
+
+.is-success svg {
+  height: 30px;
+  width: 30px;
+}
+
+.check {
+  stroke-dasharray: 130px 130px;
+  stroke-dashoffset: 130px;
+  transition: stroke-dashoffset 500ms ease-in-out;
+}
+
+.is-loading span,
+.is-success span{
+  display: none;
+}
+
+.is-success .check {
+  stroke-dashoffset : 0px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(.9);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 50px rgba(69, 152, 27, 0);
+  }
+    100% {
+    transform: scale(.9);
+    box-shadow: 0 0 0 0 rgba(69, 152, 27, 0);
+  }
+}
+
