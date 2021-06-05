@@ -3,43 +3,28 @@
 
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="./src/styles/index.css" media="screen" />
 	<link rel="shortcut icon" href="./src/imagens/faeterjLogo.png">
-	<link rel="stylesheet" href="./src/styles/login.css">
-	<title> </title>
+	
+	<link rel="stylesheet" href="./src/Pages/Login/styles/login.css">
+
+	<title>Login CPTI</title>
+	
 </head>
 
 <body>
-	<div class="container">
-		<div class="login">
-			<div class="login_img">
-				<img src="./src/imagens/user-logo.png" alt="imagem user">
-			</div>
-			<div class="login_form">
-				<form id="form">
-					<div class="login_row">
-						<img src="./src/imagens/user.svg" alt="user logo">
-						<input id="login" type="text">
-					</div>
-					<div class="login_row">
-						<img src="./src/imagens/trava.svg" alt="locker logo">
-						<input id="passwordInput" type="password">
-					</div>
-					<div class="error">Nome de usuario ou senha incorreto! <br> Por favor tente novamente</div>
-					<div class="alert">Preencha todos os campos!</div>
-					<button type="submit">Entrar</button>
-				</form>
-			</div>
-		</div>
-	</div>
+	<form class="box">
+        <h1>Login</h1>
+        <input type="text" id="login" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <input type="submit" id="submit" value="Login">
+    </form>
 
 
 	<!-- importando axios -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 
 	<!-- importando nossos scripts -->
-	<!-- <script src="./src/scripts/showPass.js"></script> -->
-	<script src="./src/scripts/login.js"></script>
+	<script src="./src/Pages/Login/scripts/login.js"></script>
 </body>
 
 </html>

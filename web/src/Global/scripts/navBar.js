@@ -1,4 +1,3 @@
-
 const ulElement = document.querySelector('#classes')
 
 const classes = []

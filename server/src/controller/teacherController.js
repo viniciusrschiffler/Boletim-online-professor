@@ -1,23 +1,23 @@
-const express = require('express')
-
-const authMiddleware = require('../middlewares/auth')
 const mysqlconnection = require('../connections/connection')
 
-const routes = express.Router()
+module.exports = {
+    async getAllTeachers(req, res) {
+        mysqlconnection.query(`SELECT 
+        pauta.CODPAUTA, pauta.TURMA_CODTURMA, 
+        funcionario.CODFUNCIONARIO, funcionario.CARGO_CODCARGO, funcionario.NOME, 
+        disciplina.CODDISCIPLINA, disciplina.NOMEDISCIPLINA, disciplina.ABREVIACAO, disciplina.CARGAHORARIA, disciplina.HORASREAL 
+        FROM 
+        pauta, funcionario, disciplina 
+        WHERE 
+        funcionario.CODFUNCIONARIO = pauta.FUNCIONARIO_CODFUNCIONARIO 
+        AND 
+        disciplina.CODDISCIPLINA = pauta.DISCIPLINA_CODDISCIPLINA`, (err, rows, fields) => {
+            if (!err) {
+                res.send(rows)
+            } else {
+                console.log(err);
+            }
+        })
+    },
 
-
-routes.use(authMiddleware)
-
-routes.get('/teacher', (req, res) => {
-    mysqlconnection.query(`SELECT nome FROM funcionario WHERE id = '${req.id_login}'`, (err, rows, fields) => {
-        if (!err) {
-            res.send({user: req.id_login, name: rows[0].nome})
-        }else{
-            console.log(err);
-        }
-    })
-})
-
-
-
-module.exports = routes
+}
