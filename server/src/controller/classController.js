@@ -28,17 +28,5 @@ module.exports = {
             }
         })
     },
-
-    async getAllClasses(req, res) {
-        mysqlconnection.query(`SELECT * FROM turma`, (err, rows, fields) => {
-            if (!err) {
-                res.send(rows)
-            } else {
-                console.log(err);
-            }
-        })
-    },
-
-
     
 }
