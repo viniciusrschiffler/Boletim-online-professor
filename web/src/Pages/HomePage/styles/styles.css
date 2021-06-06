@@ -1,22 +1,24 @@
 body{
     width: 100vw;
     height: 100vh;
-    background-image: url('../../../imagens/hero-1.jpg');   
-    animation: backGroundAnimated 20s 1s infinite;
+    background: url('../../../imagens/backGround1.jpeg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: backGroundAnimated 40s 1s infinite;
 }
 
 @keyframes backGroundAnimated {
     0%,100%{
-        background-image: url('../../../imagens/hero-1.jpg');
+        background-image: url('../../../imagens/backGround1.jpeg');
     }
     25%{
-        background-image: url('../../../imagens/hero-2.jpg');
+        background-image: url('../../../imagens/backGround2.jpeg');
     }
     50%{
-        background-image: url('../../../imagens/hero-3.jpg');
+        background-image: url('../../../imagens/backGround3.jpeg');
     }
     75%{
-        background-image: url('../../../imagens/hero-4.jpg');
+        background-image: url('../../../imagens/backGround4.jpeg');
     }
 }
 
