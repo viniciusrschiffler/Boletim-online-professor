@@ -29,5 +29,8 @@ routes.get('/selectClass/:id', classController.getClassesName)
 routes.get('/getSubjectName', classController.getSubjectName)
 
 
+routes.post('/createStudent', studentController.createStudent)
+
+
 
 module.exports = routes;

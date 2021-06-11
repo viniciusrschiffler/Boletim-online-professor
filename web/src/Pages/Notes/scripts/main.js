@@ -1,5 +1,8 @@
 async function start() {
 
+	// variavel do elemento html que deve aparecer quando as notas não estiverem salvas
+	const saved = document.querySelector('#saved')
+
 	// Criando variavel para o objeto "table" do html
 	const tableElement = document.querySelector('tbody#list')
 	//Pegando id da turma
@@ -15,6 +18,9 @@ async function start() {
 
 	//Criando variavel para os alunos
 	const students = JSON.parse(localStorage.getItem(`${NameOfSubjectPage}`)) || []
+
+	// Verificando se há notas salvas localmente
+	localStorage.getItem(`${NameOfSubjectPage}`) ? saved.style.display = 'flex' : ''
 
 
 	function removeSpaceOfName(name) {
@@ -85,6 +91,9 @@ async function start() {
 			updateStudentNotesInVariable(Number(students.length))
 
 			localStorage.setItem(`${NameOfSubjectPage}`, JSON.stringify(students))
+
+			saved.style.display = 'flex'
+
 		}, 1000)
 	}
 
@@ -154,6 +163,7 @@ async function start() {
 		})
 
 		localStorage.removeItem(`${NameOfSubjectPage}`)
+		saved.style.display = 'none'
 
 	})
 
