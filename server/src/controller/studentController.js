@@ -27,34 +27,4 @@ module.exports = {
         })
     },
 
-    async createStudent(req, res) {
-        let student = req.body
-
-        mysqlconnection.query(`INSERT INTO aluno ( id, id_turma, nome) VALUES (NULL, '${student.class}', '${student.name}')`, (err, rows, fields) => {
-            if (!err) {
-
-                student.subjects.forEach(subj => {
-
-                    mysqlconnection.query(`INSERT INTO historico (id, id_disciplina, id_aluno, nota_av1, nota_av2, freq1, freq2) VALUES (NULL, '${student.class}', '${rows.insertId}', '', '', '', '')`, (err, rows, fields) => {
-                        if (!err) {
-                            // res.send(rows)
-            
-                        } else {
-                            console.log(err);
-                        }
-                    })
-                })
-
-
-
-                res.send(rows)
-
-            } else {
-                console.log(err);
-            }
-        })
-
-
-    },
-
 }

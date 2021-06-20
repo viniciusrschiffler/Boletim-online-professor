@@ -10,17 +10,16 @@ async function start() {
 	const subject_id = sessionStorage.getItem('subject_id')
 
 
-	//Rota para pegar nome do materia
-	const subjectNameResponse = await axios.get(`http://localhost:2301/getSubjectName`, {
-		headers: { 'subjectId': `${subject_id}` }
-	})
-	const NameOfSubjectPage = subjectNameResponse.data[0].nome
+	const NameOfSubjectPage = sessionStorage.getItem(`Subject_Name`)
+	const NameOfClassPage = sessionStorage.getItem(`Class_Name`)
+
+	const draftPageName = `${NameOfSubjectPage}_${NameOfClassPage}`
 
 	//Criando variavel para os alunos
-	const students = JSON.parse(localStorage.getItem(`${NameOfSubjectPage}`)) || []
+	const students = JSON.parse(localStorage.getItem(`${draftPageName}`)) || []
 
 	// Verificando se há notas salvas localmente
-	localStorage.getItem(`${NameOfSubjectPage}`) ? saved.style.display = 'flex' : ''
+	localStorage.getItem(`${draftPageName}`) ? saved.style.display = 'flex' : ''
 
 
 	function removeSpaceOfName(name) {
@@ -67,7 +66,7 @@ async function start() {
 	// Cirando linha na tabela para cada aluno
 
 	// Se tiver notas no local storage nao utiliza a do banco de dados
-	if (!localStorage.getItem(`${NameOfSubjectPage}`)) {
+	if (!localStorage.getItem(`${draftPageName}`)) {
 		studentsData.forEach(student => {
 			addStudent(student)
 		})
@@ -85,12 +84,12 @@ async function start() {
 	function handleKeyUp(event) {
 
 		clearInterval(time)
-		localStorage.removeItem(`${NameOfSubjectPage}`)
+		localStorage.removeItem(`${draftPageName}`)
 
 		time = setTimeout(() => {
 			updateStudentNotesInVariable(Number(students.length))
 
-			localStorage.setItem(`${NameOfSubjectPage}`, JSON.stringify(students))
+			localStorage.setItem(`${draftPageName}`, JSON.stringify(students))
 
 			saved.style.display = 'flex'
 
@@ -162,7 +161,7 @@ async function start() {
 			})
 		})
 
-		localStorage.removeItem(`${NameOfSubjectPage}`)
+		localStorage.removeItem(`${draftPageName}`)
 		saved.style.display = 'none'
 
 	})

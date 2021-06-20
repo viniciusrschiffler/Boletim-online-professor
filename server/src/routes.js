@@ -22,15 +22,8 @@ routes.get('/students/:classid/:subjectid', studentController.getStudenstsNotes)
 //Rotas de atualização de nod=tas do anulo
 routes.put('/update', studentController.updateStudentsNotes )
 
-//Rota de pegar nome de materias do professor
-routes.get('/selectClass/:id', classController.getClassesName)
-
-//Rota pegar nome da materia das turmas do professor 
-routes.get('/getSubjectName', classController.getSubjectName)
-
-
-routes.post('/createStudent', studentController.createStudent)
-
+// Rota para pegar Turmas e Disciplinas lessionadas
+routes.get('/getClassesAndSubjects', classController.getClassesAndSubjects)
 
 
 module.exports = routes;
