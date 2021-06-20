@@ -42,28 +42,28 @@ Eu e meu grupo ficamos com a parte do professor. Parte responsavel pelo lançame
  - ### NavBar interativo
  <br>
 
-    Sendo criado automaticamente apartir do login do professor trás apenas as turmas e matérias lecionadas pelo professor.
+Sendo criado automaticamente apartir do login do professor trás apenas as turmas e matérias lecionadas pelo professor.
 
 <br>
 
 - ### Tela interativa
 <br>
 
-    Assim como o navbar, a tela onde será lançado as notas dos alunos é criada automaticamente apartir da turma e materia selecionada no navbar. Sendo assim uma unica página é reutilizada para todas as turmas.
+Assim como o navbar, a tela onde será lançado as notas dos alunos é criada automaticamente apartir da turma e materia selecionada no navbar. Sendo assim uma unica página é reutilizada para todas as turmas.
 
 <br>
 
  - ### Menssagem
 <br>
 
-    Na página inical do site temos uma menssagem que interage com o profesor. Podendo dar à ele bom dia, boa tarde ou boa noite com o nome do próprio usuário, e desejando-o um otimo dia, pegando o dia automaticamente do sistema.
+Na página inical do site temos uma menssagem que interage com o profesor. Podendo dar à ele bom dia, boa tarde ou boa noite com o nome do próprio usuário, e desejando-o um otimo dia, pegando o dia automaticamente do sistema.
 
 <br>
 
 - ### Rascunho
 <br>
 
-    A função de rascunho é basicamente um "auto-save", onde as notas ficam salvas localmente no computador do professor sem a necessidade de envia-las para o banco de dados. Ajudando assim o professor em caso de duvida em uma nota ou caso haja uma queda de luz antes que ele consiga salvar as notas no banco por exemplo.
+A função de rascunho é basicamente um "auto-save", onde as notas ficam salvas localmente no computador do professor sem a necessidade de envia-las para o banco de dados. Ajudando assim o professor em caso de duvida em uma nota ou caso haja uma queda de luz antes que ele consiga salvar as notas no banco por exemplo.
 
 
 ---
