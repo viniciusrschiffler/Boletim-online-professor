@@ -18,17 +18,20 @@
     <title>Lançamento de Notas</title>
 </head>
 
-<body onbeforeunload="ConfirmClose()">
+<body>
     <div id="navBar">
         <nav>
             <label class="logo">CPTI-Petrópolis</label>
             <ul>
                 <li><a href="../../Pages/HomePage/index.html">Home</a></li>
-                </li>
+
                 <li>
                     <a  class="active"  href="#">Turmas</a>
                     <ul id="classes"></ul>
                 </li>
+
+                <li><a href="../../Pages/calendar/index.html">Calendario</a></li>
+
                 <li><a id="exit" href="../../../index.html">Sair</a></li>
             </ul>
         </nav>
@@ -67,7 +70,6 @@
 
     <!-- importando axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- importando nossos scripts -->
     <script src="scripts/button.js"></script>
     <script src="../../Global/scripts/navBar.js"></script>

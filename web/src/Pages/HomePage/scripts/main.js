@@ -64,7 +64,7 @@ axios.get('http://localhost:2301/teacher', {
 })
 .then((response) => {
     DivContainer.innerHTML = `
-        <h1>${menssageHour} Professor ${response.data.name}</h1>
+        <h1>${menssageHour} Professor<span>(a)</span> ${response.data.name}</h1>
         <h2>${menssageDay}</h2>
     `
 })

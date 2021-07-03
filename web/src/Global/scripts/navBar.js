@@ -1,5 +1,27 @@
 const classesElement = document.querySelector('#classes')
 
+// console.log(window.innerWidth);
+
+
+// const navbar = document.querySelector('nav')
+// const showSidebar = document.querySelector('#showSidebar')
+// const sidebarDisplay = window.getComputedStyle(navbar)
+
+// showSidebar.addEventListener('click', () => {
+//     if (window.innerWidth < 850) {
+//         navbar.style.display = sidebarDisplay.display == 'none' ? 'flex' : ''
+//         showSidebar.style.display = 'none'
+//     }
+// })
+
+// document.querySelector('#container').addEventListener('click', () => {
+//     if (window.innerWidth < 850) {
+//         navbar.style.display = sidebarDisplay.display == 'flex' ? 'none' : ''
+//         showSidebar.style.display = 'flex'
+//     }
+// })
+
+
 
 document.querySelector('#exit').addEventListener('click', () => {
     localStorage.clear()
@@ -21,7 +43,7 @@ const startNavbar = async () => {
 
         classesElement.innerHTML += `
         <li>
-            <a href="#">${clas.nomeclatura}</a>
+            <a href="#" class="class">${clas.nomeclatura}</a>
             <ul id="${clas.nomeclatura}">
 
             </ul>
@@ -29,7 +51,7 @@ const startNavbar = async () => {
         `
 
         let classElement = document.getElementById(`${clas.nomeclatura}`)
-        
+
         clas.disciplinas.forEach(subj => {
             classElement.innerHTML += `
             <li>
@@ -40,34 +62,34 @@ const startNavbar = async () => {
 
 
     const aElement = document.getElementsByClassName('sweet')
-            for (let i = 0; i < aElement.length; i++) {
+    for (let i = 0; i < aElement.length; i++) {
 
-                // console.log(aElement[i].innerHTML);
-                aElement[i].addEventListener("click", () => {
+        // console.log(aElement[i].innerHTML);
+        aElement[i].addEventListener("click", () => {
 
-                    let value_class = aElement[i].getAttribute('value-class')
-                    let value_subject = aElement[i].getAttribute('value-subject')
+            let value_class = aElement[i].getAttribute('value-class')
+            let value_subject = aElement[i].getAttribute('value-subject')
 
-                    let value_name = aElement[i].getAttribute('value-name')
-                    let class_name = aElement[i].getAttribute('class-name')
+            let value_name = aElement[i].getAttribute('value-name')
+            let class_name = aElement[i].getAttribute('class-name')
 
-                    sessionStorage.removeItem('class_id')
-                    sessionStorage.setItem('class_id', `${value_class}`)
+            sessionStorage.removeItem('class_id')
+            sessionStorage.setItem('class_id', `${value_class}`)
 
-                    sessionStorage.removeItem('subject_id')
-                    sessionStorage.setItem('subject_id', `${value_subject}`)
+            sessionStorage.removeItem('subject_id')
+            sessionStorage.setItem('subject_id', `${value_subject}`)
 
-                    sessionStorage.removeItem(`Subject_Name`)
-                    sessionStorage.setItem(`Subject_Name`, value_name)
+            sessionStorage.removeItem(`Subject_Name`)
+            sessionStorage.setItem(`Subject_Name`, value_name)
 
-                    sessionStorage.removeItem(`Class_Name`)
-                    sessionStorage.setItem(`Class_Name`, class_name)
+            sessionStorage.removeItem(`Class_Name`)
+            sessionStorage.setItem(`Class_Name`, class_name)
 
 
 
-                    window.location.assign('../Notes/')
-                }) 
-            }   
+            window.location.assign('../Notes/')
+        })
+    }
 
 }
 

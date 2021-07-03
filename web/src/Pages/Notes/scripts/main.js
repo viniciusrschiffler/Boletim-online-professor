@@ -44,10 +44,10 @@ async function start() {
 		tableElement.innerHTML += `
 			<tr>
 				<th scope="row">${data.name}</th>
-				<td><input id="${nameWhithoutSpace}Grade1" class="typeable" maxlength="2"  type="number" step="0.1" min="-1" max="10" value="${data.grade1}"  placeholder="Digite a Nota"        ></td>
-				<td><input id="${nameWhithoutSpace}Freq1" class="typeable"  maxlength="3"  type="number" step="0.1" min="-1" max="100" value="${data.freq1}" placeholder="Digite a Frequência"  ></td>                
-				<td><input id="${nameWhithoutSpace}Grade2" class="typeable" maxlength="2"  type="number" step="0.1" min="-1" max="10" value="${data.grade2}" placeholder="Digite a Nota"        ></td>
-				<td><input id="${nameWhithoutSpace}Freq2" class="typeable"  maxlength="3"  type="number" step="0.1" min="-1" max="100" value="${data.freq2}" placeholder="Digite a Frequência"  ></td>
+				<td><input id="${nameWhithoutSpace}Grade1" class="typeable" maxlength="2"  type="number" step="0.1" min="0" max="10" value="${data.grade1}"  placeholder="Digite a Nota"        ></td>
+				<td><input id="${nameWhithoutSpace}Freq1" class="typeable"  maxlength="3"  type="number" step="0.1" min="0" max="100" value="${data.freq1}" placeholder="Digite a Frequência"  ></td>                
+				<td><input id="${nameWhithoutSpace}Grade2" class="typeable" maxlength="2"  type="number" step="0.1" min="0" max="10" value="${data.grade2}" placeholder="Digite a Nota"        ></td>
+				<td><input id="${nameWhithoutSpace}Freq2" class="typeable"  maxlength="3"  type="number" step="0.1" min="0" max="100" value="${data.freq2}" placeholder="Digite a Frequência"  ></td>
 			</tr>`
 	}
 
@@ -62,6 +62,8 @@ async function start() {
 	const studentsResponde = await axios.get(`http://localhost:2301/students/${class_id}/${subject_id}`)
 
 	const studentsData = studentsResponde.data
+
+	// console.log(studentsData);
 
 	// Cirando linha na tabela para cada aluno
 
@@ -93,7 +95,7 @@ async function start() {
 
 			saved.style.display = 'flex'
 
-		}, 1000)
+		}, 400)
 	}
 
 
@@ -104,6 +106,14 @@ async function start() {
 
 
 	/****************************************** UPDATE NAS NOTAS **********************************/
+
+	function verifyEnptyInput(inputValue) {
+		if (inputValue == '') {
+			return null
+		}else {
+			return Number(inputValue)
+		}
+	}
 
 	function updateStudentNotesInVariable(repeatTimes) {
 
@@ -121,10 +131,10 @@ async function start() {
 		//Função para armazenar novos dados dos alunos em um objeto
 		function updateStudentNotes() {
 
-			students[studentsPosition].grade1 = Number(inputs[grade1Position].value)
-			students[studentsPosition].freq1 = Number(inputs[freq1Position].value)
-			students[studentsPosition].grade2 = Number(inputs[grade2Position].value)
-			students[studentsPosition].freq2 = Number(inputs[freq2Position].value)
+			students[studentsPosition].grade1 = verifyEnptyInput(inputs[grade1Position].value)
+			students[studentsPosition].freq1 = verifyEnptyInput(inputs[freq1Position].value)
+			students[studentsPosition].grade2 = verifyEnptyInput(inputs[grade2Position].value)
+			students[studentsPosition].freq2 = verifyEnptyInput(inputs[freq2Position].value)
 
 			studentsPosition++
 			grade1Position += 4
@@ -141,7 +151,7 @@ async function start() {
 
 
 	//Adicionando um ouvidor de eventos no formulario
-	document.querySelector('#form').addEventListener('submit', (event) => {
+	document.querySelector('#form').addEventListener('submit', async (event) => {
 		//Usando a função "preventDefault()" para nao passar os dados pela URL 
 		event.preventDefault();
 
@@ -149,17 +159,11 @@ async function start() {
 		updateStudentNotesInVariable(Number(students.length))
 
 		//Adicionado dados novos dos alunos no db
-
-		students.forEach(student => {
-			axios.put('http://localhost:2301/update', {
-				"grade1": `${student.grade1}`,
-				"freq1": `${student.freq1}`,
-				"grade2": `${student.grade2}`,
-				"freq2": `${student.freq2}`,
-				"id": `${student.id}`,
-				"subjectid": `${subject_id}`
-			})
+		axios.put('http://localhost:2301/update', {
+			"students": students,
+			"subjectid": `${subject_id}`,
 		})
+		
 
 		localStorage.removeItem(`${draftPageName}`)
 		saved.style.display = 'none'
