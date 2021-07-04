@@ -16,6 +16,9 @@ const routes = express.Router()
 // Rota para verificar login do professor e gerar token de altenticação
 routes.post('/login', aplicationController.loginAuthentication)
 
+// Rota para pegar data de inicio e final do periodo avaliativo
+routes.get('/getRatingPeriod', aplicationController.getRatingPeriod)
+
 //Rota pegando alunos do db
 routes.get('/students/:classid/:subjectid', studentController.getStudenstsNotes)
 

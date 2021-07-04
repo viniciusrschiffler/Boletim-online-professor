@@ -54,7 +54,6 @@ async function start() {
 
 
 
-
 	document.querySelector('header').innerHTML += `<h1>${NameOfSubjectPage}</h1>`
 
 
@@ -63,7 +62,6 @@ async function start() {
 
 	const studentsData = studentsResponde.data
 
-	// console.log(studentsData);
 
 	// Cirando linha na tabela para cada aluno
 
@@ -77,6 +75,25 @@ async function start() {
 	students.forEach(student => {
 		createTable(student)
 	})
+
+	/****************** Verificando Periodo Avaliativo ******************/
+
+	const ratingPeriodResponse = await axios.get('http://localhost:2301/getRatingPeriod')
+	const ratingPeriod = ratingPeriodResponse.data
+
+
+	if (!ratingPeriod.IsInbetweenPeriod) {
+		const inputs = document.querySelectorAll('input')
+		inputs.forEach(input => {
+			input.disabled = true
+			input.style.cursor = 'not-allowed'
+		})
+
+		const submitButton = document.querySelector('button#send')
+		submitButton.disabled = true
+		submitButton.style.cursor = 'not-allowed'
+	}
+
 
 
 	/****************** AUTO SAVE (Rascunho) ******************/
@@ -110,7 +127,7 @@ async function start() {
 	function verifyEnptyInput(inputValue) {
 		if (inputValue == '') {
 			return null
-		}else {
+		} else {
 			return Number(inputValue)
 		}
 	}
@@ -163,7 +180,7 @@ async function start() {
 			"students": students,
 			"subjectid": `${subject_id}`,
 		})
-		
+
 
 		localStorage.removeItem(`${draftPageName}`)
 		saved.style.display = 'none'
