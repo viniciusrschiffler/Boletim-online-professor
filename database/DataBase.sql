@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Jun-2021 às 17:16
+-- Tempo de geração: 03-Jul-2021 às 21:28
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 7.3.25
 
@@ -154,10 +154,10 @@ CREATE TABLE `historico` (
   `id_turma` int(11) NOT NULL,
   `id_disciplina` int(11) NOT NULL,
   `id_aluno` int(11) NOT NULL,
-  `nota_av1` float NOT NULL,
-  `nota_av2` float NOT NULL,
-  `freq1` float NOT NULL,
-  `freq2` float NOT NULL
+  `nota_av1` float DEFAULT NULL,
+  `nota_av2` float DEFAULT NULL,
+  `freq1` float DEFAULT NULL,
+  `freq2` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -165,21 +165,21 @@ CREATE TABLE `historico` (
 --
 
 INSERT INTO `historico` (`id`, `id_turma`, `id_disciplina`, `id_aluno`, `nota_av1`, `nota_av2`, `freq1`, `freq2`) VALUES
-(78, 1, 1, 27, 0, 0, 8, 0),
+(78, 1, 1, 27, 1, NULL, 4, 0),
 (79, 1, 2, 27, 0, 0, 0, 0),
 (80, 1, 3, 27, 0, 0, 0, 0),
 (81, 1, 4, 27, 0, 0, 0, 0),
 (82, 1, 5, 27, 0, 0, 0, 0),
 (83, 1, 6, 27, 0, 0, 0, 0),
 (84, 1, 7, 27, 0, 0, 0, 0),
-(85, 1, 1, 28, 0, 0, 0, 0),
+(85, 1, 1, 28, NULL, 9, NULL, 0),
 (86, 1, 2, 28, 0, 0, 0, 0),
 (87, 1, 3, 28, 0, 0, 0, 0),
 (88, 1, 4, 28, 0, 0, 0, 0),
 (89, 1, 5, 28, 0, 0, 0, 0),
 (90, 1, 6, 28, 0, 0, 0, 0),
 (91, 1, 7, 28, 0, 0, 0, 0),
-(92, 1, 1, 29, 0, 0, 0, 0),
+(92, 1, 1, 29, 5, NULL, 8, 6),
 (93, 1, 2, 29, 0, 0, 0, 0),
 (94, 1, 3, 29, 0, 0, 0, 0),
 (95, 1, 4, 29, 0, 0, 0, 0),
@@ -204,7 +204,7 @@ INSERT INTO `historico` (`id`, `id_turma`, `id_disciplina`, `id_aluno`, `nota_av
 (114, 3, 11, 32, 0, 0, 0, 0),
 (115, 3, 12, 32, 0, 0, 0, 0),
 (116, 3, 13, 32, 0, 0, 0, 0),
-(123, 4, 8, 34, 0, 0, 0, 0),
+(123, 4, 8, 34, 8, 7, 98, 0),
 (124, 4, 9, 34, 0, 0, 0, 0),
 (125, 4, 10, 34, 10, 0, 8, 0),
 (126, 4, 11, 34, 0, 0, 0, 0),
@@ -241,49 +241,49 @@ INSERT INTO `historico` (`id`, `id_turma`, `id_disciplina`, `id_aluno`, `nota_av
 (157, 5, 18, 39, 0, 0, 0, 0),
 (158, 5, 19, 39, 0, 0, 0, 0),
 (159, 6, 14, 40, 0, 0, 0, 0),
-(160, 6, 15, 40, 0, 0, 0, 0),
+(160, 6, 15, 40, 10, 10, 50, 50),
 (161, 6, 16, 40, 0, 0, 0, 0),
 (162, 6, 17, 40, 0, 0, 0, 0),
 (163, 6, 18, 40, 0, 0, 0, 0),
 (164, 6, 19, 40, 0, 0, 0, 0),
 (165, 6, 14, 41, 0, 0, 0, 0),
-(166, 6, 15, 41, 0, 0, 0, 0),
+(166, 6, 15, 41, 10, 10, 50, 50),
 (167, 6, 16, 41, 0, 0, 0, 0),
 (168, 6, 17, 41, 0, 0, 0, 0),
 (169, 6, 18, 41, 0, 0, 0, 0),
 (170, 6, 19, 41, 0, 0, 0, 0),
 (171, 6, 14, 42, 0, 0, 0, 0),
-(172, 6, 15, 42, 0, 0, 0, 0),
+(172, 6, 15, 42, 10, 10, 50, 50),
 (173, 6, 16, 42, 0, 0, 0, 0),
 (174, 6, 17, 42, 0, 0, 0, 0),
 (175, 6, 18, 42, 0, 0, 0, 0),
 (176, 6, 19, 42, 0, 0, 0, 0),
 (177, 6, 14, 43, 0, 0, 0, 0),
-(178, 6, 15, 43, 0, 0, 0, 0),
+(178, 6, 15, 43, 10, 10, 0, 0),
 (179, 6, 16, 43, 0, 0, 0, 0),
 (180, 6, 17, 43, 0, 0, 0, 0),
 (181, 6, 18, 43, 0, 0, 0, 0),
 (182, 6, 19, 43, 0, 0, 0, 0),
 (183, 6, 14, 44, 0, 0, 0, 0),
-(184, 6, 15, 44, 0, 0, 0, 0),
+(184, 6, 15, 44, -1, -1, -1, -1),
 (185, 6, 16, 44, 0, 0, 0, 0),
 (186, 6, 17, 44, 0, 0, 0, 0),
 (187, 6, 18, 44, 0, 0, 0, 0),
 (188, 6, 19, 44, 0, 0, 0, 0),
 (189, 6, 14, 45, 0, 0, 0, 0),
-(190, 6, 15, 45, 0, 0, 0, 0),
+(190, 6, 15, 45, -1, -1, -1, -1),
 (191, 6, 16, 45, 0, 0, 0, 0),
 (192, 6, 17, 45, 0, 0, 0, 0),
 (193, 6, 18, 45, 0, 0, 0, 0),
 (194, 6, 19, 45, 0, 0, 0, 0),
 (195, 6, 14, 46, 0, 0, 0, 0),
-(196, 6, 15, 46, 0, 0, 0, 0),
+(196, 6, 15, 46, 8, -1, 76, -1),
 (197, 6, 16, 46, 0, 0, 0, 0),
 (198, 6, 17, 46, 0, 0, 0, 0),
 (199, 6, 18, 46, 0, 0, 0, 0),
 (200, 6, 19, 46, 0, 0, 0, 0),
 (201, 6, 14, 47, 0, 0, 0, 0),
-(202, 6, 15, 47, 0, 0, 0, 0),
+(202, 6, 15, 47, -1, 10, -1, 100),
 (203, 6, 16, 47, 0, 0, 0, 0),
 (204, 6, 17, 47, 0, 0, 0, 0),
 (205, 6, 18, 47, 0, 0, 0, 0),
@@ -371,6 +371,25 @@ INSERT INTO `periodo` (`id`, `id_disciplina`, `id_turma`) VALUES
 (38, 18, 6),
 (39, 19, 5),
 (40, 19, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `periodo_avaliativo`
+--
+
+CREATE TABLE `periodo_avaliativo` (
+  `id` int(11) NOT NULL,
+  `data_inicio` date NOT NULL,
+  `data_fim` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `periodo_avaliativo`
+--
+
+INSERT INTO `periodo_avaliativo` (`id`, `data_inicio`, `data_fim`) VALUES
+(1, '2021-07-03', '2021-07-10');
 
 -- --------------------------------------------------------
 
@@ -475,6 +494,12 @@ ALTER TABLE `periodo`
   ADD KEY `fk_id_turma` (`id_turma`);
 
 --
+-- Índices para tabela `periodo_avaliativo`
+--
+ALTER TABLE `periodo_avaliativo`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `semestre`
 --
 ALTER TABLE `semestre`
@@ -532,6 +557,12 @@ ALTER TABLE `login`
 --
 ALTER TABLE `periodo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT de tabela `periodo_avaliativo`
+--
+ALTER TABLE `periodo_avaliativo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `semestre`
