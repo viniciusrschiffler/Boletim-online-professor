@@ -84,8 +84,6 @@ module.exports = {
                 // console.log("Data Atual", currentDay, currentMonth, currentYear);
 
                 const splitedBeginningPeriod = beginningPeriod.split('')
-                console.log(beginningPeriod);
-                console.log(splitedBeginningPeriod);
                 const BeginningPeriodYear = `${splitedBeginningPeriod[1]}${splitedBeginningPeriod[2]}${splitedBeginningPeriod[3]}${splitedBeginningPeriod[4]}`
                 const BeginningPeriodMonth = `${splitedBeginningPeriod[6]}${splitedBeginningPeriod[7]}`
                 const BeginningPeriodDay = `${splitedBeginningPeriod[9]}${splitedBeginningPeriod[10]}`

@@ -26,7 +26,6 @@ tr{
 }
 
 td{
-    
     padding: 8px;
     border-left: none;
     border-right: none;
@@ -39,5 +38,56 @@ td > input {
     background: #f0f0f0;
     border: 0;
     padding: 20px 20px 20px 50px; 
+}
+
+@media (max-width: 1350px) {
+    table {
+        width: 60vw;
+    }
+}
+
+@media (max-width: 1100px) {
+    table {
+        width: 70vw;
+    }
+}
+
+@media (max-width: 850px) {
+    table {
+        width: 80vw;
+    }
+  
+}
+
+@media (max-width: 700px) {
+    table {
+        width: 90vw;
+    }
+  
+}
+
+@media (max-width: 630px) {
+    body {
+       width: 110vw;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
+    
+    table {
+        width: 100vw;
+    }
+  
+}
+
+@media (max-width: 500px) {
+    body {
+       width: 150vw;
+    }
+    
+    table {
+        width: 140vw;
+    }
+  
 }
 

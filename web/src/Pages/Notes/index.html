@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0">
+
     <link rel="shortcut icon" href="../../imagens/logoCPTI.png">
 
     <link rel="stylesheet" href="../../Global/styles/globalStyles.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="../../Global/styles/navBar.css">
 
     <link rel="stylesheet" href="styles/table.css">
@@ -19,21 +22,31 @@
 </head>
 
 <body>
-    <div id="navBar">
+
+    <div class="wrapper">
         <nav>
-            <label class="logo">CPTI-Petrópolis</label>
-            <ul>
-                <li><a href="../../Pages/HomePage/index.html">Home</a></li>
+            <input type="checkbox" id="show-search">
+            <input type="checkbox" id="show-menu">
+            <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+            <div class="content">
+                <div class="logo"><a href="#">CPTI-Petrópolis</a></div>
+                <ul class="links">
+                    <li><a href="../../Pages/HomePage/index.html">Home</a></li>
+                    
+                    <li><a href="../../Pages/calendar/index.html">Calendario</a></li>
 
-                <li>
-                    <a  class="active"  href="#">Turmas</a>
-                    <ul id="classes"></ul>
-                </li>
-
-                <li><a href="../../Pages/calendar/index.html">Calendario</a></li>
-
-                <li><a id="exit" href="../../../index.html">Sair</a></li>
-            </ul>
+                    <li>
+                        <a href="#" class="desktop-link">Turmas</a>
+                        <input type="checkbox" id="show-services">
+                        <label for="show-services">Turmas</label>
+                        
+                        <ul id="classes"></ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <label for="show-search" class="search-icon"><img id="exit" src="../../imagens/sair.svg"></label>
+            
         </nav>
     </div>
 

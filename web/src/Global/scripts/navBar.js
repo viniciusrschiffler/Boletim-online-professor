@@ -1,31 +1,10 @@
 const classesElement = document.querySelector('#classes')
 
-// console.log(window.innerWidth);
-
-
-// const navbar = document.querySelector('nav')
-// const showSidebar = document.querySelector('#showSidebar')
-// const sidebarDisplay = window.getComputedStyle(navbar)
-
-// showSidebar.addEventListener('click', () => {
-//     if (window.innerWidth < 850) {
-//         navbar.style.display = sidebarDisplay.display == 'none' ? 'flex' : ''
-//         showSidebar.style.display = 'none'
-//     }
-// })
-
-// document.querySelector('#container').addEventListener('click', () => {
-//     if (window.innerWidth < 850) {
-//         navbar.style.display = sidebarDisplay.display == 'flex' ? 'none' : ''
-//         showSidebar.style.display = 'flex'
-//     }
-// })
-
-
 
 document.querySelector('#exit').addEventListener('click', () => {
-    localStorage.clear()
+    // localStorage.clear()
     sessionStorage.clear()
+    window.location.replace('../../../index.html');
 })
 
 
@@ -43,22 +22,27 @@ const startNavbar = async () => {
 
         classesElement.innerHTML += `
         <li>
-            <a href="#" class="class">${clas.nomeclatura}</a>
-            <ul id="${clas.nomeclatura}">
-
+            <a href="#" class="desktop-link">${clas.nomeclatura}</a>
+            <input type="checkbox" class="show-items" id="${clas.nomeclatura}">
+            <label for="${clas.nomeclatura}">${clas.nomeclatura}</label>
+            <ul id="${clas.nomeclatura}Ul">
             </ul>
         </li>
+
         `
 
-        let classElement = document.getElementById(`${clas.nomeclatura}`)
+        let classElement = document.getElementById(`${clas.nomeclatura}Ul`)
 
         clas.disciplinas.forEach(subj => {
             classElement.innerHTML += `
             <li>
                 <a href="#" class="sweet" value-name="${subj.nome}" class-name="${clas.nomeclatura}" value-class="${clas.id_turma}" value-subject="${subj.id_disciplina}">${subj.sigla}</a>
-            </li>`
+            </li>
+            `
         })
     });
+
+
 
 
     const aElement = document.getElementsByClassName('sweet')
