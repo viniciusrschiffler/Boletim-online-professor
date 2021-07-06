@@ -89,6 +89,24 @@ td > input {
         width: 140vw;
     }
   
+    td > input {
+        width: 150%; 
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+       width: 240vw;
+    }
+    
+    table {
+        width: 200vw;
+    }
+
+    td > input {
+        width: 200%; 
+    }
+    
 }
 
 @media (max-width: 300px) {
@@ -98,6 +116,10 @@ td > input {
     
     table {
         width: 300vw;
+    }
+
+    td > input {
+        width: 300%; 
     }
   
 }

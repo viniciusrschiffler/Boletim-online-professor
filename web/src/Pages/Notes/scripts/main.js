@@ -54,7 +54,7 @@ async function start() {
 
 
 
-	document.querySelector('header').innerHTML += `<h1>${NameOfSubjectPage}</h1>`
+	document.querySelector('header').innerHTML += `<h1>${NameOfSubjectPage} - ${NameOfClassPage}</h1>`
 
 
 	// Acessando a rota get para listar os alunos
@@ -172,19 +172,20 @@ async function start() {
 		//Usando a função "preventDefault()" para nao passar os dados pela URL 
 		event.preventDefault();
 
+		setTimeout(() => {
 
-		updateStudentNotesInVariable(Number(students.length))
+			updateStudentNotesInVariable(Number(students.length))
 
-		//Adicionado dados novos dos alunos no db
-		axios.put('http://localhost:2301/update', {
-			"students": students,
-			"subjectid": `${subject_id}`,
-		})
+			//Adicionado dados novos dos alunos no db
+			axios.put('http://localhost:2301/update', {
+				"students": students,
+				"subjectid": `${subject_id}`,
+			})
 
 
-		localStorage.removeItem(`${draftPageName}`)
-		saved.style.display = 'none'
-
+			localStorage.removeItem(`${draftPageName}`)
+			saved.style.display = 'none'
+		}, 600)
 	})
 
 
