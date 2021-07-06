@@ -42,7 +42,7 @@ header h1 {
 
 @media (max-width: 630px) {
     header h1 {
-        margin-top: 100%;
+        margin-top: 20%;
     }
   
 }

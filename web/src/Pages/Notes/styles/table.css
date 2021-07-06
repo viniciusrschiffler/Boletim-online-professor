@@ -91,3 +91,13 @@ td > input {
   
 }
 
+@media (max-width: 300px) {
+    body {
+       width: 350vw;
+    }
+    
+    table {
+        width: 300vw;
+    }
+  
+}
